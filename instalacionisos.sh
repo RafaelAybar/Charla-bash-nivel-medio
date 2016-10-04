@@ -8,7 +8,7 @@ read ruta
         if [ $ruta = "p"  ]
                 then
                         exit
-        elif [ -z "$ruta" ]
+        elif [[ -z "$ruta" ]
                 then 
                          echo "Oiga, introduzca la ruta"
                  elif [ ( -n "$ruta" ) &&  ( -f "$ruta" ) ]]
