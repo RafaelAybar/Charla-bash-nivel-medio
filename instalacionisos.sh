@@ -12,7 +12,7 @@ read ruta
                 then 
                          echo "Oiga, introduzca la ruta"
                  elif [ ( -n "$ruta" ) &&  ( -f "$ruta" ) ]]
-                0        #Aquí comprobamos que la variable ruta no esté vacía y sea la ruta exacta donde cargar la imagen del sistema operativo a instalar.
+                       #Aquí comprobamos que la variable ruta no esté vacía y sea la ruta exacta donde cargar la imagen del sistema operativo a instalar.
                 then
                         echo "Ahora introduce la ruta donde está el pendrive"
                                 read rutapen 
