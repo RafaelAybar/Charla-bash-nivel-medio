@@ -5,9 +5,9 @@ echo "Bienvenido al instalador de sistemas operativos en pendrive"
 echo "Indica dónde está la iso a intalar"
 echo "Si quires salir pulsa la tecla p "
 read ruta
-        if [ $ruta == "p"  ]
+        if [ $ruta = "p"  ]
                 then                    exit
-        elif [ $ruta !="" ]
+        elif [ -n "$ruta" ]
                 then
                         echo "Oiga, introduzca la ruta"
         elif [[ ( -n "$ruta" ) &&  ( -f "$ruta" ) ]]
