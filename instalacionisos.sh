@@ -25,4 +25,3 @@ read ruta
         fi
 
 done
-~                                                          
