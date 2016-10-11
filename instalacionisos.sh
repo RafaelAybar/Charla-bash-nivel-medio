@@ -17,10 +17,10 @@ do
         then
                 echo "Ahora introduce la ruta donde está el pendrive"
                 read rutapen
-                if [[ ( -n "$rutapen" ) && ( -d "$rutapen" ) ]]
+                if [  -b "$rutapen" ]
                 then
                         # Aquí ejecutamos la instrucción que permite grabar las isos booteables
-                        dd if=$rutapen of=$ruta bs=4094 conv=noerror
+                        sudo dd if=$ruta of=$rutapen bs=4094 status=progress && echo "Operación realizada con exito."
                 else
                         echo "La ruta no es correcta"
                 fi
