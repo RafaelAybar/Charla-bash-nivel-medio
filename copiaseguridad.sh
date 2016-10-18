@@ -21,7 +21,7 @@ EOF
 					cp -r $directorio $destino
 			else
 				echo "Introduzca una ruta válida"
-			fi
+			fi;;
     2) echo "Introduzca el directorio de origen del fichero"
 	read fichero
 	echo "Introduzca la ruta de destino"
@@ -31,12 +31,12 @@ EOF
 				cp -r $fichero $destinof
 		else
 			echo "Se ha equivocado"
-		fi
+		fi;;
     3) echo "Bienvenido a CRON"
-	crontab -e
+	crontab -e ;;
     4) echo "Lista de tareas activas:"
-	crontab -l
-    5) echo "Hasta luego"
-    *) echo "Debe escoger una opción válida"
+	crontab -l ;;
+    5) echo "Hasta luego";;
+    *) echo "Debe escoger una opción válida";;
   esac
 done
