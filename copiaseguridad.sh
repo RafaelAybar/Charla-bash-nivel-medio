@@ -30,13 +30,14 @@ EOF
 			then
 				cp -r $fichero $destinof
 		else
-			echo "Se ha equivocado"
+			echo "Se ha equivocado"5
 		fi;;
     3) echo "Bienvenido a CRON"
-	crontab -e ;;
+	crontab -e;;
     4) echo "Lista de tareas activas:"
-	crontab -l ;;
-    5) echo "Hasta luego";;
+	crontab -l;;
+    5) echo "Hasta luego"
+	exit;;
     *) echo "Debe escoger una opción válida";;
   esac
 done
