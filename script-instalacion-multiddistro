@@ -39,3 +39,4 @@ EOF
     5) echo "Hasta luego"
        exit;;
     *) echo "Debes escoger una opción válida";;
+    esac
