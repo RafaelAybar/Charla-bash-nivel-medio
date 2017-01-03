@@ -23,8 +23,8 @@ EOF
       sudo apt install git;
       sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
       sudo apt-get install docker-engine;
-
-
+      sudo apt install virtualbox;
+      echo "Disfruta de tus programas"
       ;;
     2) echo "¡Muy buena elección, es nuestra especialidad!";;
     3) echo "Actualizamos los repositorios y los programas instalados"
@@ -35,6 +35,7 @@ EOF
       yaourt -S visual-studio-code;
       pacman -S git;
     ;;
-    4) echo "Hasta luego"
+    4) echo "Estamos trabajando en ello";;
+    5) echo "Hasta luego"
        exit;;
-*) echo "Debes escoger una opción válida.";;
+    *) echo "Debes escoger una opción válida";;
