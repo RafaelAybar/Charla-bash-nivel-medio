@@ -1,0 +1,40 @@
+#!/bin/bash
+cat <<-EOF
+Selecciona tu distro de 64 bits
+1 Ubuntu 16.04 LTS (y derivados)
+2 OpenSuse
+3 Manjaro
+4 Fedora 25
+5 Salir
+EOF
+  read respuesta
+
+  case $respuesta in
+    1) echo "Añadimos los repositorios"
+      sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian xenial contrib";
+      #Añadimos las claves del repositorio:
+      sudo apt-key add oracle_vbox_2016.asc;
+      sudo apt-key add oracle_vbox.asc;
+      sudo apt-key adv \
+               --keyserver hkp://ha.pool.sks-keyservers.net:80 \
+               --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+      sudo add-apt-repository ppa:libreoffice/libreoffice-5-2;
+      sudo apt update && sudo apt upgrade;
+      sudo apt install git;
+      sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
+      sudo apt-get install docker-engine;
+
+
+      ;;
+    2) echo "¡Muy buena elección, es nuestra especialidad!";;
+    3) echo "Actualizamos los repositorios y los programas instalados"
+      sudo pacman-mirrors -g;
+      sudo pacman -Syu;
+      sudo pacman -S virtualbox && pacman -S git;
+      yaourt -S sublime-text-dev;
+      yaourt -S visual-studio-code;
+      pacman -S git;
+    ;;
+    4) echo "Hasta luego"
+       exit;;
+*) echo "Debes escoger una opción válida.";;
