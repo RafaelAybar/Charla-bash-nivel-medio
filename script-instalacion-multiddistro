@@ -48,6 +48,7 @@ EOF
       # Veré luego lo esencial en Fedora (GNOME)
   ;;
   5) echo "Sabía que acabarías aquí"
+      sudo apt install software-properties-common;
         #Añadimos las claves del repositorio:
       sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian jessie contrib";
       sudo apt-key add oracle_vbox_2016.asc;
