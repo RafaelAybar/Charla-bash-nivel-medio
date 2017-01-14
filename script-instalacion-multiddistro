@@ -57,6 +57,7 @@ EOF
                --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
       sudo add-apt-repository ppa:libreoffice/libreoffice-5-2;
       sudo apt update && sudo apt upgrade;
+      sudo apt-get install linux-headers-$(uname -r) dkms
       sudo apt install git;
       sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
       sudo apt-get install docker-engine;
