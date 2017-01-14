@@ -5,7 +5,9 @@ Selecciona tu distro de 64 bits
 2 OpenSuse
 3 Manjaro
 4 Fedora 25
-5 Salir
+5 Debian Testing (Stretch)
+6 Debian Stable (Jessie)
+7 Salir
 EOF
   read respuesta
 
@@ -35,8 +37,37 @@ EOF
       yaourt -S visual-studio-code;
       pacman -S git;
     ;;
-    4) echo "Estamos trabajando en ello";;
-    5) echo "Hasta luego"
+    4) echo "Pongámonos el sombrero entonces ;)";;
+      echo "Actalizando el sistema"
+      sudo dnf update -y;
+      echo "Agregando los repositorios RPM Fusion"
+      sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm;
+      echo "Configurando rpm fusion"
+      sudo dnf update -y;
+      #Apps opcionales
+      # echo "Instalando vlc"
+      # sudo dnf -y install vlc;
+      # echo "Instalando Plataforma de juegos steam"
+      # sudo dnf -y install steam;
+      # Veré luego lo esencial en Fedora (GNOME)
+  ;;
+  5) echo "Debian Testing otro de nuestros favoritos <3"
+   echo "Actualizando tu sistema"
+     sudo apt update && sudo apt upgrade;
+   echo "Instalando utilidades básicas del sistema"
+     sudo apt -y install rednotebook clementine apt-xapian-index gdebi gksu firmware-linux ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation gparted;
+   echo "Instalando Codecs Multimedia"
+     sudo apt -y install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad gstreamer0.10-fluendo-mp3 gstreamer0.10-pulseaudio;
+   echo "Instalando temas (Para que quede guapo)
+     sudo apt -y install arc-theme numix-gtk-theme numix-icon-theme;
+    #apps nonfree
+    #echo "instalando steam"
+    #sudo dpkg --add-architecture i386 && sudo apt -y install steam
+   ;;
+  6) echo "El buen y estable Debian"
+       echo "En progreso"
+       ;;
+  7) echo "Hasta luego"
        exit;;
     *) echo "Debes escoger una opción válida";;
     esac
