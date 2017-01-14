@@ -55,7 +55,7 @@ EOF
      sudo apt -y install apt-xapian-index gdebi gksu firmware-linux ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation gparted;
    echo "Instalando Codecs Multimedia"
      sudo apt -y install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad gstreamer0.10-fluendo-mp3 gstreamer0.10-pulseaudio;
-   echo "Instalando temas (Para que quede guapo)
+   echo "Instalando temas (Para que quede guapo)"
      sudo apt -y install arc-theme numix-gtk-theme numix-icon-theme;
    sudo apt -y install git;
     #Falta añadir los repos de vbox
