@@ -6,8 +6,7 @@ Selecciona tu distro de 64 bits
 3 Manjaro
 4 Fedora 25
 5 Debian Testing (Stretch)
-6 Debian Stable (Jessie)
-7 Salir
+6 Salir
 EOF
   read respuesta
 
@@ -48,22 +47,23 @@ EOF
       sudo dnf -y install steam;
       # Veré luego lo esencial en Fedora (GNOME)
   ;;
-  5) echo "Debian Testing otro de nuestros favoritos <3"
-   echo "Actualizando tu sistema"
-     sudo apt update && sudo apt upgrade;
-   echo "Instalando utilidades básicas del sistema"
-     sudo apt -y install apt-xapian-index gdebi gksu firmware-linux ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation gparted;
-   echo "Instalando Codecs Multimedia"
-     sudo apt -y install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad gstreamer0.10-fluendo-mp3 gstreamer0.10-pulseaudio;
-   echo "Instalando temas (Para que quede guapo)"
-     sudo apt -y install arc-theme numix-gtk-theme numix-icon-theme;
-   sudo apt -y install git;
-    #Falta añadir los repos de vbox
-   ;;
-  6) echo "El buen y estable Debian"
-       echo "En progreso"
-       ;;
-  7) echo "Hasta luego"
+  5) echo "Sabía que acabarías aquí"
+        #Añadimos las claves del repositorio:
+      sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian jessie contrib";
+      sudo apt-key add oracle_vbox_2016.asc;
+      sudo apt-key add oracle_vbox.asc;
+      sudo apt-key adv \
+               --keyserver hkp://ha.pool.sks-keyservers.net:80 \
+               --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+      sudo add-apt-repository ppa:libreoffice/libreoffice-5-2;
+      sudo apt update && sudo apt upgrade;
+      sudo apt install git;
+      sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
+      sudo apt-get install docker-engine;
+      sudo apt install virtualbox;
+      echo "Disfruta de tus programas"
+      ;;
+  6) echo "Hasta luego"
        exit;;
     *) echo "Debes escoger una opción válida"
     ;;
