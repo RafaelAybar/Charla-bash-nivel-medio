@@ -45,6 +45,12 @@ EOF
       sudo dnf update -y;
       sudo dnf -y install vlc;
       sudo dnf -y install steam;
+      #instalacion de utilidades
+      echo "instalando utilidades de Fedora"
+      sudo dnf -y install gnome-tweak-tool dconf-editor;
+      echo "instalando codecs multimedia"
+      sudo dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1;
+      #Repositorio e instalacion de virtualbox en progreso
       # Veré luego lo esencial en Fedora (GNOME)
   ;;
   5) echo "Sabía que acabarías aquí"
@@ -56,11 +62,38 @@ EOF
                --keyserver hkp://ha.pool.sks-keyservers.net:80 \
                --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
       sudo add-apt-repository ppa:libreoffice/libreoffice-5-2;
-      sudo apt update && sudo apt upgrade;
+      sudo apt -y update && sudo apt -y upgrade;
       sudo apt install git;
-      sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
-      sudo apt-get install docker-engine;
+      sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual;
+      sudo apt install docker-engine;
       sudo apt install virtualbox;
+    #Optimización del sistema
+    echo "instalando herramientas de optimización"
+      sudo apt -y install apt-transport-https;#habilita el protocolo https para repositorios varios
+      sudo apt -y install menulibre alacarte; #Editores de menu para Gnome, MATE y otros DE
+      sudo apt -y install prelink preload; #Cargan los programas en la memoria para uso mas eficiente
+      sudo apt -y install dconf-editor #editor de configuraciones
+    echo "instalando controlador de batería"
+      sudo apt -y install tlp && sudo tlp start; #Aplicación de los repos, mejora el rendimiento de la batería deteniendo procesos inservibles si la máquina tiene poca energía
+    #Soporte de procesadores
+    echo "instalando controladores del procesador"
+      sudo apt -y install amd64-microcode; #controlador para procesadores AMD 
+      sudo apt -y install intel-microcode; #controlador para procesadores INTEL
+    #Herramientas gráficas no indispensables
+      #sudo apt install inkscape gimp;
+    #Utilidades del sistema
+      echo "instalando utilidades para Debian"
+      sudo apt -y install debian-goodies; #Utilidades para controlar paquetes
+      sudo apt -y install debianutils; #utilidades para manejar paquetes
+      sudo apt -y install laptop-detect; #Paquetes para asegurar una propia detección de hardware en laptops
+      sudo apt -y install gdebi; #instalador de paquetería .deb tanto en modo gráfico como en consola
+      sudo apt -y install gksu; #usar sudo de manera gráfica
+      #Versión mas reciente de Firefox (No ESR)
+      echo "instalando la versión más reciente de firefox"
+      echo deb http://http.debian.net/debian unstable main | sudo tee /etc/apt/sources.list.d/Firefox.list;
+      sudo apt -y update;
+      sudo apt install -t unstable firefox
+      
       echo "Disfruta de tus programas"
       ;;
   6) echo "Hasta luego"
