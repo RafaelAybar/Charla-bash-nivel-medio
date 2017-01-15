@@ -58,9 +58,28 @@ EOF
       sudo add-apt-repository ppa:libreoffice/libreoffice-5-2;
       sudo apt update && sudo apt upgrade;
       sudo apt install git;
-      sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
-      sudo apt-get install docker-engine;
+      sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual;
+      sudo apt install docker-engine;
       sudo apt install virtualbox;
+    #Optimización del sistema
+      sudo apt install apt-transport-https;
+      sudo apt install menulibre alacarte;
+      sudo apt install prelink preload;
+    #Uso de batería
+      sudo apt install tlp && sudo tlp start; #Aplicación de los repos, mejora el rendimiento de la batería deteniendo procesos inservibles si la máquina tiene poca energía
+    #Soporte de procesadores
+      sudo apt install amd64-microcode;
+      sudo apt install intel-microcode;
+    #Herramientas gráficas no indispensables
+      #sudo apt install inkscape gimp;
+    #Utilidades del sistema
+      sudo apt install debian-goodies;
+      sudo apt install debianutils;
+      sudo apt install laptop-detect;
+      sudo apt install gdebi;
+      sudo apt install gksu;
+      #Versión mas reciente de Firefox (No ESR)
+      #En progreso
       echo "Disfruta de tus programas"
       ;;
   6) echo "Hasta luego"
