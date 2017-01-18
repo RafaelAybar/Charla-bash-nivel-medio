@@ -24,7 +24,7 @@ EOF
       sudo apt install git;
       sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
       sudo apt-get install docker-engine;
-      sudo apt install virtualbox;
+      sudo apt install virtualbox5.1;
       echo "Disfruta de tus programas"
       ;;
     2) echo "¡Muy buena elección, es nuestra especialidad!";;
