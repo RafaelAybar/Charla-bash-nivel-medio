@@ -14,8 +14,8 @@ EOF
     1) echo "Añadimos los repositorios"
       sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian xenial contrib";
       #Añadimos las claves del repositorio:
-      sudo apt-key add oracle_vbox_2016.asc;
-      sudo apt-key add oracle_vbox.asc;
+      sudo wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+      sudo wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
       sudo apt-key adv \
                --keyserver hkp://ha.pool.sks-keyservers.net:80 \
                --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
