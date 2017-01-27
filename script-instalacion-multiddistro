@@ -25,7 +25,12 @@ EOF
       sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
       sudo apt-get install docker-engine;
       sudo apt-get install virtualbox-5.1;
+      sudo wget -c 'https://go.microsoft.com/fwlink/?LinkID=760868';
+      sudo mv index.html?LinkID=760868 code.deb;
+      sudo chmod 777 code.deb;
+      sudo dpkg -i code.deb;
       echo "Disfruta de tus programas"
+      sudo rm -rf code.deb;
       ;;
     2) echo "¡Muy buena elección, es nuestra especialidad!";;
     3) echo "Actualizamos los repositorios y los programas instalados"
@@ -63,7 +68,12 @@ EOF
       sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual;
       sudo apt-get install docker-engine;
       sudo apt install virtualbox;
+      sudo wget -c 'https://go.microsoft.com/fwlink/?LinkID=760868';
+      sudo mv index.html?LinkID=760868 code.deb;
+      sudo chmod 777 code.deb;
+      sudo dpkg -i code.deb;
       echo "Disfruta de tus programas"
+      sudo rm -rf code.deb;
       ;;
   6) echo "Hasta luego"
        exit;;
