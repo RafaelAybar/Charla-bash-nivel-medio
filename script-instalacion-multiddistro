@@ -4,7 +4,7 @@ Selecciona tu distro de 64 bits
 1 Ubuntu 16.04 LTS (y derivados)
 2 OpenSuse
 3 Manjaro
-4 Fedora 25
+4 Fedora 27
 5 Debian Testing (Stretch)
 6 Salir
 EOF
@@ -37,9 +37,7 @@ EOF
       sudo pacman-mirrors -g;
       sudo pacman -Syu;
       sudo pacman -S virtualbox && pacman -S git;
-      yaourt -S sublime-text-dev;
       yaourt -S visual-studio-code;
-      pacman -S git;
     ;;
     4) echo "Pongámonos el sombrero entonces"
       echo "Actualizando el sistema"
@@ -49,9 +47,13 @@ EOF
       echo "Configurando rpm fusion"
       sudo dnf update -y;
       sudo dnf -y install vlc;
-      sudo dnf -y install steam;
-      # Veré luego lo esencial en Fedora (GNOME)
-  ;;
+      sudo dnf -y install git-all 
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  sudo dnf -y install httpd php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+  sudo dnf -y install mariadb mariadb-server
+  echo "Debes hacer la instalación segura después"
+  sudo dnf -y install php-xdebug
+  echo "recuerda que debes editar la config del debuuger"
   5) echo "Sabía que acabarías aquí"
       sudo apt install software-properties-common;
         #Añadimos las claves del repositorio:
