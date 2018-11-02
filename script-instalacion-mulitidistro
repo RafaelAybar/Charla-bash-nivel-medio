@@ -46,6 +46,7 @@ EOF
   echo "Debes hacer la instalación segura después"
   sudo dnf -y install php-xdebug
   echo "recuerda que debes editar la config del debugger"
+  ;;
   5) echo "Sabía que acabarías aquí"
       sudo apt install software-properties-common;
       
