@@ -1,0 +1,57 @@
+#!/bin/bash
+cat <<-EOF
+Selecciona tu distro de 64 bits
+1 Ubuntu 18.04 LTS (y derivados)
+2 OpenSuse
+3 Manjaro
+4 Fedora
+5 Debian Testing (Stretch)
+6 Salir
+EOF
+  read respuesta
+
+  case $respuesta in
+    1) echo "Añadimos los snaps"
+	sudo snap install vscode --classic
+	sudo snap install skype --classic
+	sudo snap install eclipse --classic
+      echo "Actualizamos los repositorios y procedemos a instalar los paquetes"
+      sudo apt update && sudo apt upgrade;
+      sudo apt install git vim;
+      sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual;
+      sudo apt install docker-engine;
+	echo "Descargamos el bloqueador de publicidad en el fichero hosts";
+     git clone https://github.com/StevenBlack/hosts.git
+      ;;
+    2) echo "Uff"
+	;;
+    3) echo "Actualizamos los repositorios y los programas instalados"
+      sudo pacman-mirrors -f;
+      sudo pacman -Syyu;
+      sudo pacman -S virtualbox && pacman -S git;
+      sudo pacman -S code;
+    ;;
+    4) echo "Pongámonos el sombrero entonces"
+      echo "Actualizando el sistema"
+      sudo dnf update -y;
+      echo "Agregando los repositorios RPM Fusion"
+      sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm;
+      echo "Configurando rpm fusion"
+      sudo dnf update -y;
+      sudo dnf -y install vlc;
+      sudo dnf -y install git-all 
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  sudo dnf -y install httpd php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+  sudo dnf -y install mariadb mariadb-server
+  echo "Debes hacer la instalación segura después"
+  sudo dnf -y install php-xdebug
+  echo "recuerda que debes editar la config del debugger"
+  5) echo "Sabía que acabarías aquí"
+      sudo apt install software-properties-common;
+      
+      ;;
+  6) echo "Hasta luego"
+       exit;;
+    *) echo "Debes escoger una opción válida"
+    ;;
+esac
